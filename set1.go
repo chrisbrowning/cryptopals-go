@@ -14,6 +14,14 @@ import (
 	"unicode"
 )
 
+const (
+	set1dir = "files/set1/"
+	c4txt = set1dir + "4.txt"
+	c6txt = set1dir + "6.txt"
+	c7txt = set1dir + "7.txt"
+	c8txt = set1dir + "8.txt"
+)
+
 func chal1() {
 	str := "49276d206b696c6c696e6720796f757220627261696e206c696b65206120706f69736f6e6f7573206d757368726f6f6d"
 	expected := "SSdtIGtpbGxpbmcgeW91ciBicmFpbiBsaWtlIGEgcG9pc29ub3VzIG11c2hyb29t"
@@ -136,7 +144,7 @@ func analyzeSingleXorSkew(seq []byte) {
 }
 
 func chal4() {
-	f, err := os.Open("4.txt")
+	f, err := os.Open(c4txt)
 	if err != nil {
 		fmt.Printf("Challenge 4 - Failed. Error reading file: %v\n")
 	}
@@ -225,7 +233,7 @@ func chal5() {
 // break repeating key xor
 func chal6() {
 
-	dat, err := ioutil.ReadFile("6.txt")
+	dat, err := ioutil.ReadFile(c6txt)
 	if err != nil {
 		panic(err)
 	}
@@ -304,7 +312,7 @@ func decodeVignere(seq, key []byte) {
 func chal7() {
 	const keyStr = "YELLOW SUBMARINE"
 
-	dat, err := ioutil.ReadFile("7.txt")
+	dat, err := ioutil.ReadFile(c7txt)
 	if err != nil {
 		panic(err)
 	}
@@ -324,7 +332,7 @@ func chal7() {
 }
 
 func chal8() {
-	f, err := os.Open("8.txt")
+	f, err := os.Open(c8txt)
 	if err != nil {
 		fmt.Printf("Challenge 4 - Failed. Error reading file: %v\n")
 	}
